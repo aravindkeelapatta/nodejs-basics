@@ -1,10 +1,21 @@
-console.log("index file example")
+var fs = require("fs")
+
+var filepath = "./sample.txt";
 
 
-function Person(first, last) {
-	this.first = first;
-	this.last = last;
-}
+var data = fs.readFile(filepath, function(err, data) {
+	if(err) {
+		console.log(err)
+	}
+	fs.writeFile("./output.txt", data, function(err,data) {
+	if(err) {
+		throw err;
+		console.log(err)
+	}
+})
 
-var aru = new Person("aru","aravind");
-console.log(aru)
+})
+
+
+
+
